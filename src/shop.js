@@ -4,36 +4,32 @@ class Shop {
   }
   updateQuality() {
     this.items.forEach((item) => {
-      if (item.name !== 'Aged Brie' && item.name !== 'Backstage passes to a TAFKAL80ETC concert') {
-        Shop._decrementQuality(item);
-      } else {
-        if (Shop._isNotMaxQuality(item)) {
-          Shop._incrementQuality(item);
-          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (item.sellIn < 11) {
-                Shop._incrementQuality(item);
-            }
-            if (item.sellIn < 6) {
-              Shop._incrementQuality(item);
-            }
-          }
-        }
-      }
-      if (item.name !== 'Sulfuras, Hand of Ragnaros') {
-        Shop._decrementSellIn(item);
-      }
-      if (item.sellIn < 0) {
-        if (item.name !== 'Aged Brie') {
-          if (item.name !== 'Backstage passes to a TAFKAL80ETC concert') {
-            Shop._decrementQuality(item);
-          } else {
-            item.quality = item.quality - item.quality;
-          }
+      if (item.name === 'Sulfuras, Hand of Ragnaros') return;
+      if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
+        if (item.sellIn <= 0) {
+          item.quality = 0;
+        } else if (item.sellIn < 6) {
+          Shop._incrementQuality(item, 3);
+        } else if (item.sellIn < 11) {
+          Shop._incrementQuality(item, 2);
         } else {
           Shop._incrementQuality(item);
         }
+      } else if (item.name === 'Aged Brie') {
+        if (item.sellIn <= 0) {
+          Shop._incrementQuality(item, 2);
+        } else {
+          Shop._incrementQuality(item);
+        }
+      } else {
+        if (item.sellIn <= 0) {
+          Shop._decrementQuality(item, 2);
+        } else {
+          Shop._decrementQuality(item);
+        }
       }
-    })
+      Shop._decrementSellIn(item);
+    });
 
     return this.items;
   }
@@ -46,17 +42,15 @@ class Shop {
     return item.quality < 50;
   }
 
-  static _decrementQuality(item) {
+  static _decrementQuality(item, amount = 1) {
     if (Shop._isNotZeroQuality(item)) {
-      if (item.name !== 'Sulfuras, Hand of Ragnaros') {
-        item.quality -= 1;
-      }
+      item.quality -= amount;
     }
   }
 
-  static _incrementQuality(item) {
+  static _incrementQuality(item, amount = 1) {
     if (Shop._isNotMaxQuality(item)) {
-      item.quality += 1;
+      item.quality += amount;
     }
   }
 
