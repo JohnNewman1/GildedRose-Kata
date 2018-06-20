@@ -28,7 +28,7 @@ class Shop {
         }
       }
       if (item.name !== 'Sulfuras, Hand of Ragnaros') {
-        item.sellIn = item.sellIn - 1;
+        Shop._decrementSellIn(item);
       }
       if (item.sellIn < 0) {
         if (item.name !== 'Aged Brie') {
@@ -66,6 +66,10 @@ class Shop {
 
   static _incrementQuality(item) {
     item.quality += 1;
+  }
+
+  static _decrementSellIn(item) {
+    item.sellIn -= 1;
   }
 
 }
