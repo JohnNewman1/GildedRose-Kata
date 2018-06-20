@@ -1,0 +1,22 @@
+{
+  "name": "gildedrose-refactoring-kata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gilded_rose.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgesykes86/GildedRose-Kata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgesykes86/GildedRose-Kata/issues"
+  },
+  "homepage": "https://github.com/georgesykes86/GildedRose-Kata#readme"
+}
