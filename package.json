@@ -1,13 +1,13 @@
 {
   "name": "gildedrose-refactoring-kata",
   "version": "1.0.0",
-  "description": "",
+  "description": "GildedRose kata",
   "main": "gilded_rose.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "test"
+    "test": "node_modules/.bin/jasmine"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/georgesykes86/GildedRose-Kata/issues"
   },
-  "homepage": "https://github.com/georgesykes86/GildedRose-Kata#readme"
+  "homepage": "https://github.com/georgesykes86/GildedRose-Kata#readme",
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "jasmine-ajax": "^3.4.0",
+    "jasmine-jquery": "^2.1.1"
+  }
 }
