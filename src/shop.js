@@ -34,23 +34,27 @@ class Shop {
     return this.items;
   }
 
-  static _isNotZeroQuality(item) {
-    return item.quality > 0;
+  static _isNotZeroQuality(quality) {
+    return quality > 0;
   }
 
-  static _isNotMaxQuality(item) {
-    return item.quality < 50;
+  static _isNotMaxQuality(quality) {
+    return quality < 50;
   }
 
   static _decrementQuality(item, amount = 1) {
-    if (Shop._isNotZeroQuality(item)) {
+    if (Shop._isNotZeroQuality(item.quality - amount)) {
       item.quality -= amount;
+    } else {
+      item.quality = 0;
     }
   }
 
   static _incrementQuality(item, amount = 1) {
-    if (Shop._isNotMaxQuality(item)) {
+    if (Shop._isNotMaxQuality(item.quality + amount)) {
       item.quality += amount;
+    } else {
+      item.quality = 50;
     }
   }
 
