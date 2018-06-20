@@ -1,4 +1,4 @@
-const { Item } = require('../../src/gilded_rose');
+const { Item } = require('../../src/item');
 
 describe('Item', () => {
   let item;

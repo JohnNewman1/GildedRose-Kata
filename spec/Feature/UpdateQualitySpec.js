@@ -1,4 +1,4 @@
-const { Item } = require('../../src/gilded_rose');
+const { Item } = require('../../src/item');
 const { Shop } = require('../../src/gilded_rose');
 const { extractItemProperties } = require('../helpers/FeatureHelpers');
 
