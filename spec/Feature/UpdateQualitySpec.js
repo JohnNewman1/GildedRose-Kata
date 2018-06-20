@@ -1,5 +1,5 @@
 const { Item } = require('../../src/item');
-const { Shop } = require('../../src/gilded_rose');
+const { Shop } = require('../../src/shop');
 const { extractItemProperties } = require('../helpers/FeatureHelpers');
 
 describe('Updating the quality feature test', () => {
