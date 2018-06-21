@@ -2,7 +2,7 @@ const { TicketItem } = require('../../src/ticketItem');
 
 describe('TicketItem', () => {
   let ticketItem;
-  let newTicketItem
+  let newTicketItem;
   const name = 'Backstage passes to a TAFKAL80ETC concert';
   const sellIn = 12;
   const quality = 27;

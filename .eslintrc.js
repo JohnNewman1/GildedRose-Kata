@@ -6,6 +6,7 @@ module.exports = {
   },
     "rules": {
         "no-underscore-dangle": 0,
-        "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}]
+        "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+        "class-methods-use-this": 0
     }
 };
