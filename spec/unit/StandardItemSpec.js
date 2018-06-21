@@ -26,6 +26,18 @@ describe('StandardItem', () => {
   });
 
   it('decrements its quality by one while sellIn not negative', () => {
-    expect(standardItem.quality).toEqual(quality - 1)
-  })
+    expect(standardItem.quality).toEqual(quality - 1);
+  });
+
+  it('decrements its quality again while sellIn not negative', () => {
+    standardItem.updateProperties();
+
+    expect(standardItem.quality).toEqual(quality - 2);
+  });
+
+  it('decrements quality twice as fast when past sellIn', () => {
+    for (let i = 0; i < 4; i++) { standardItem.updateProperties(); }
+
+    expect(standardItem.quality).toEqual(quality - 7);
+  });
 });
