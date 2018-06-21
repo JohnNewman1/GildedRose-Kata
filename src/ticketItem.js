@@ -3,7 +3,7 @@ const { MaturingItem } = require('./maturingItem');
 class TicketItem extends MaturingItem {
   constructor(name, sellIn, quality) {
     super(name, sellIn, quality);
-    this.TRIPLE_QUALITY_CHANGE = 3;
+    this.TRIPLE_QUALITY_CHANGE = 3 * this.QUALITY_CHANGE;
   }
 
   _updateQuality() {

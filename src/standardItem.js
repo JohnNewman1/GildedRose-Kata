@@ -4,7 +4,7 @@ class StandardItem extends Item {
   constructor(name, sellIn, quality) {
     super(name, sellIn, quality);
     this.QUALITY_CHANGE = 1;
-    this.DOUBLE_QUALITY_CHANGE = 2;
+    this.DOUBLE_QUALITY_CHANGE = 2 * this.QUALITY_CHANGE;
   }
 
   updateProperties() {
