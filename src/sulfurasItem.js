@@ -1,6 +1,6 @@
-const { Item } = require('./item');
+const { StandardItem } = require('./standardItem');
 
-class SulfurasItem extends Item {
+class SulfurasItem extends StandardItem {
   updateProperties() {}
 }
 
