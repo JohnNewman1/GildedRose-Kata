@@ -8,9 +8,14 @@ describe('TicketItem', () => {
 
   beforeEach(() => {
     ticketItem = new TicketItem(name, sellIn, quality);
+    ticketItem.updateProperties();
   });
 
   it('returns the correct name', () => {
     expect(ticketItem.name).toEqual(name);
+  });
+
+  it('calls the updateProperties method on the super class', () => {
+    expect(ticketItem.sellIn).toEqual(sellIn - 1);
   });
 });
