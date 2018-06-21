@@ -14,6 +14,7 @@ class TicketItem extends MaturingItem {
     } else {
       this.quality += this.QUALITY_CHANGE;
     }
+    this._exceedsMaxQualityCheck();
   }
 
   _isTenDaysOrLess() {
