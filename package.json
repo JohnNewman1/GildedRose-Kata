@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "node_modules/.bin/jasmine"
+    "test": "node_modules/.bin/jasmine",
+    "test-cov": "istanbul cover --include-all-sources -x **/lib/** -x **/spec/** jasmine-node spec "
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,10 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jasmine": "^2.10.1",
+    "istanbul": "^0.4.5",
     "jasmine": "^3.1.0",
     "jasmine-ajax": "^3.4.0",
-    "jasmine-jquery": "^2.1.1"
+    "jasmine-jquery": "^2.1.1",
+    "jasmine-node": "^1.14.6"
   }
 }
