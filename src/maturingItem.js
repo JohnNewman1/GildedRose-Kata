@@ -7,7 +7,7 @@ class MaturingItem extends StandardItem {
   }
 
   _updateQuality() {
-    this.quality += (this._isPastSellIn()) ? this.NEW_QUALITY_CHANGE : this.QUALITY_CHANGE;
+    this.quality += (this._isPastSellIn()) ? this.DOUBLE_QUALITY_CHANGE : this.QUALITY_CHANGE;
     this._exceedsMaxQualityCheck();
   }
 

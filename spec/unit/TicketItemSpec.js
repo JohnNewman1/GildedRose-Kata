@@ -25,6 +25,13 @@ describe('TicketItem', () => {
 
   it('increases in quality by two when sellIn <= 10', () => {
     for (let i = 0; i < 2; i++) { ticketItem.updateProperties(); }
+
     expect(ticketItem.quality).toEqual(quality + 4);
+  });
+
+  it('increases in quality by three when sellIn <= 5', () => {
+    for (let i = 0; i < 7; i++) { ticketItem.updateProperties(); }
+
+    expect(ticketItem.quality).toEqual(quality + 15);
   });
 });

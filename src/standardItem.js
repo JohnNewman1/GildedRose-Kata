@@ -4,7 +4,7 @@ class StandardItem extends Item {
   constructor(name, sellIn, quality) {
     super(name, sellIn, quality);
     this.QUALITY_CHANGE = 1;
-    this.NEW_QUALITY_CHANGE = 2;
+    this.DOUBLE_QUALITY_CHANGE = 2;
   }
 
   updateProperties() {
@@ -17,7 +17,7 @@ class StandardItem extends Item {
   }
 
   _updateQuality() {
-    this.quality -= (this._isPastSellIn()) ? this.NEW_QUALITY_CHANGE : this.QUALITY_CHANGE;
+    this.quality -= (this._isPastSellIn()) ? this.DOUBLE_QUALITY_CHANGE : this.QUALITY_CHANGE;
     this._nonZeroQualityCheck();
   }
 
