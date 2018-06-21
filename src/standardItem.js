@@ -3,8 +3,8 @@ const { Item } = require('./item');
 class StandardItem extends Item {
   constructor(name, sellIn, quality) {
     super(name, sellIn, quality);
-    this.QUALITY_DECREMENT = 1;
-    this.NEW_QUALITY_DECREMENT = 2;
+    this.QUALITY_CHANGE = 1;
+    this.NEW_QUALITY_CHANGE = 2;
   }
 
   updateProperties() {
@@ -17,7 +17,7 @@ class StandardItem extends Item {
   }
 
   _updateQuality() {
-    this.quality -= (this._isPastSellIn()) ? this.NEW_QUALITY_DECREMENT : this.QUALITY_DECREMENT;
+    this.quality -= (this._isPastSellIn()) ? this.NEW_QUALITY_CHANGE : this.QUALITY_CHANGE;
     this._nonZeroQualityCheck();
   }
 
