@@ -18,10 +18,15 @@ class StandardItem extends Item {
 
   _updateQuality() {
     this.quality -= (this._isPastSellIn()) ? this.NEW_QUALITY_DECREMENT : this.QUALITY_DECREMENT;
+    this._nonZeroQualityCheck();
   }
 
   _isPastSellIn() {
     return this.sellIn <= 0;
+  }
+
+  _nonZeroQualityCheck() {
+    this.quality = (this.quality < 0) ? 0 : this.quality;
   }
 }
 

@@ -40,4 +40,10 @@ describe('StandardItem', () => {
 
     expect(standardItem.quality).toEqual(quality - 7);
   });
+
+  it('never has a quality less than zero', () => {
+    for (let i = 0; i < 6; i++) { standardItem.updateProperties(); }
+
+    expect(standardItem.quality).toEqual(0);
+  });
 });
