@@ -12,7 +12,7 @@ class MaturingItem extends StandardItem {
   }
 
   _exceedsMaxQualityCheck() {
-    this.quality = (this.quality > this.MAX_QUALITY) ? this.MAX_QUALITY : this.quality;
+    if (this.quality > this.MAX_QUALITY) { this.quality = this.MAX_QUALITY; }
   }
 }
 

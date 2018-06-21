@@ -2,12 +2,16 @@ const { TicketItem } = require('../../src/ticketItem');
 
 describe('TicketItem', () => {
   let ticketItem;
+  let newTicketItem
   const name = 'Backstage passes to a TAFKAL80ETC concert';
   const sellIn = 12;
   const quality = 27;
+  const newSellIn = 6;
+  const newQuality = 45;
 
   beforeEach(() => {
     ticketItem = new TicketItem(name, sellIn, quality);
+    newTicketItem = new TicketItem(name, newSellIn, newQuality);
     ticketItem.updateProperties();
   });
 
@@ -42,9 +46,20 @@ describe('TicketItem', () => {
   });
 
   it('prevents the quality exceeding 50 different start point', () => {
-    const newTicketItem = new TicketItem(name, 6, 45);
     for (let i = 0; i < 3; i++) { newTicketItem.updateProperties(); }
 
     expect(newTicketItem.quality).toEqual(50);
+  });
+
+  it('reduces quality to Zero after th event', () => {
+    for (let i = 0; i <= newSellIn; i++) { newTicketItem.updateProperties(); }
+
+    expect(newTicketItem.quality).toEqual(0);
+  });
+
+  it('still has quality on day of event', () => {
+    for (let i = 0; i < newSellIn; i++) { newTicketItem.updateProperties(); }
+
+    expect(newTicketItem.quality).not.toEqual(0);
   });
 });

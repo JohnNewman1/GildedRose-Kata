@@ -15,6 +15,7 @@ class TicketItem extends MaturingItem {
       this.quality += this.QUALITY_CHANGE;
     }
     this._exceedsMaxQualityCheck();
+    this._pastSellInCheck();
   }
 
   _isTenDaysOrLess() {
@@ -23,6 +24,10 @@ class TicketItem extends MaturingItem {
 
   _isFiveDaysOrLess() {
     return this.sellIn <= 5;
+  }
+
+  _pastSellInCheck() {
+    if (this._isPastSellIn()) { this.quality = 0; }
   }
 }
 
