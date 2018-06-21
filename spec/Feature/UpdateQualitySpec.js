@@ -3,6 +3,7 @@ const { Shop } = require('../../src/shop');
 const { TicketItem } = require('../../src/ticketItem');
 const { StandardItem } = require('../../src/standardItem');
 const { MaturingItem } = require('../../src/maturingItem');
+const { SulfurasItem } = require('../../src/sulfurasItem');
 const { extractItemProperties } = require('../helpers/FeatureHelpers');
 
 describe('Updating the quality feature test', () => {
@@ -11,12 +12,12 @@ describe('Updating the quality feature test', () => {
 
   beforeEach(() => {
     items = [];
-    items.push(new Item('+5 Dexterity Vest', 10, 20));
-    items.push(new Item('Aged Brie', 2, 0));
-    items.push(new Item('Elixir of the Mongoose', 5, 7));
-    items.push(new Item('Elixir of the Mongoose', 0, 1));
-    items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
-    items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 21));
+    items.push(new StandardItem('+5 Dexterity Vest', 10, 20));
+    items.push(new MaturingItem('Aged Brie', 2, 0));
+    items.push(new StandardItem('Elixir of the Mongoose', 5, 7));
+    items.push(new StandardItem('Elixir of the Mongoose', 0, 1));
+    items.push(new SulfurasItem('Sulfuras, Hand of Ragnaros', 0, 80));
+    items.push(new TicketItem('Backstage passes to a TAFKAL80ETC concert', 15, 21));
     shop = new Shop(items);
   });
 
