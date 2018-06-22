@@ -121,14 +121,14 @@ In addition to the strategy above I have started to explore a different implemen
 the Strategy_Pattern branch of this repository.
 
 #### Technologies
-The app was made using Javascript with the new EC6 class syntax. Node was used to run the app and npm for installing packages. Testing was performed using
+The app was made using Javascript with the EC6 class syntax. Node was used to run the app and npm for installing packages. Testing was performed using
 Jasmine with ESLint as a linter using the AirBnB config and Istanbul for code coverage.
 
 #### Testing
 The development process followed a TDD approach with the development of feature tests to assess the
 end to end functionality and unit tests to test each of the components in isolation.
 
-The tests can be run from the command line using ``npm run test```
+The tests can be run from the command line using ```npm run test```
 
 One concern I have about my tests are that they rely heavily on the starting values entered during set up.
 There is a risk that someone could change a number by accident and this would mean certain edge cases might no
