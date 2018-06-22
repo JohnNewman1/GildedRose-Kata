@@ -115,7 +115,7 @@ that extended the base Item class but added their own functionality for updating
 
 The image below shows the UML diagram showing the relationships between the new objects.
 
-![Imgur](https://i.imgur.com/MUGr5Zd.png)
+![Imgur](https://i.imgur.com/dExdMmJ.png)
 
 In addition to the strategy above I have started to explore a different implementation using the Strategy Design Pattern. This can be found by switching to
 the Strategy_Pattern branch of this repository.
