@@ -2,7 +2,7 @@
   "name": "gildedrose-refactoring-kata",
   "version": "1.0.0",
   "description": "GildedRose kata",
-  "main": "gilded_rose.js",
+  "main": "shop.js",
   "directories": {
     "lib": "lib"
   },
