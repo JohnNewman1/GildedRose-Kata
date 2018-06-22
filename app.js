@@ -20,11 +20,12 @@ const gildedRose = new Shop(items);
 const days = 15;
 
 function showHeaderFor(day) {
-  console.log(`-------- day ${day} --------`);
+  console.log(`-------- day ${day} --------\n`);
 }
 
-function showItemsFor(day) {
+function showItemsFor() {
   console.log('name, sellIn, quality');
+  console.log('---------------------');
   for (let j = 0; j < gildedRose.items.length; j++) {
     const item = gildedRose.items[j];
     console.log(`${item.name}, ${item.sellIn}, ${item.quality}`);
