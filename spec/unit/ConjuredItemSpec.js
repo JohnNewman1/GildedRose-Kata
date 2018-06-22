@@ -26,6 +26,6 @@ describe('conjuredItem', () => {
   it('decrements its quality by double when sellIn <= 0', () => {
     for (let i = 0; i < 4; i++) { conjuredItem.updateProperties(); }
 
-    expect(conjuredItem.quality).toEqual(quality - 10);
+    expect(conjuredItem.quality).toEqual(quality - 14);
   });
 });

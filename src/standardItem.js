@@ -4,7 +4,7 @@ class StandardItem extends Item {
   constructor(name, sellIn, quality) {
     super(name, sellIn, quality);
     this.QUALITY_CHANGE = 1;
-    this.DOUBLE_QUALITY_CHANGE = 2 * this.QUALITY_CHANGE;
+    this.MAX_QUALITY = 50;
   }
 
   updateProperties() {
@@ -17,15 +17,17 @@ class StandardItem extends Item {
   }
 
   _updateQuality() {
-    this.quality -= (this._isPastSellIn()) ? this.DOUBLE_QUALITY_CHANGE : this.QUALITY_CHANGE;
-    this._nonZeroQualityCheck();
+    this.quality -= this.QUALITY_CHANGE;
+    this._pastSellInCheck();
+    this._checkQualityLimits();
   }
 
-  _isPastSellIn() {
-    return this.sellIn <= 0;
+  _pastSellInCheck() {
+    if (this.sellIn <= 0) { this.quality -= this.QUALITY_CHANGE; }
   }
 
-  _nonZeroQualityCheck() {
+  _checkQualityLimits() {
+    if (this.quality > this.MAX_QUALITY) { this.quality = this.MAX_QUALITY; }
     if (this.quality < 0) { this.quality = 0; }
   }
 }

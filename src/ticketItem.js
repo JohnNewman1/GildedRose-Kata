@@ -1,33 +1,24 @@
-const { MaturingItem } = require('./maturingItem');
+const { StandardItem } = require('./standardItem');
 
-class TicketItem extends MaturingItem {
-  constructor(name, sellIn, quality) {
-    super(name, sellIn, quality);
-    this.TRIPLE_QUALITY_CHANGE = 3 * this.QUALITY_CHANGE;
-  }
-
+class TicketItem extends StandardItem {
   _updateQuality() {
-    if (this._isFiveDaysOrLess()) {
-      this.quality += this.TRIPLE_QUALITY_CHANGE;
-    } else if (this._isTenDaysOrLess()) {
-      this.quality += this.DOUBLE_QUALITY_CHANGE;
-    } else {
-      this.quality += this.QUALITY_CHANGE;
-    }
-    this._exceedsMaxQualityCheck();
+    this.quality += this.QUALITY_CHANGE;
+    this._tenDaysOrLessCheck();
+    this._fiveDaysOrLessCheck();
+    this._checkQualityLimits();
     this._pastSellInCheck();
   }
 
-  _isTenDaysOrLess() {
-    return this.sellIn <= 10;
+  _tenDaysOrLessCheck() {
+    if (this.sellIn <= 10) { this.quality += this.QUALITY_CHANGE; }
   }
 
-  _isFiveDaysOrLess() {
-    return this.sellIn <= 5;
+  _fiveDaysOrLessCheck() {
+    if (this.sellIn <= 5) { this.quality += this.QUALITY_CHANGE; }
   }
 
   _pastSellInCheck() {
-    if (this._isPastSellIn()) { this.quality = 0; }
+    if (this.sellIn <= 0) { this.quality = 0; }
   }
 }
 
