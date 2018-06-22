@@ -1,8 +1,13 @@
 const { StandardItem } = require('./standardItem');
 
 class TicketItem extends StandardItem {
+  constructor(name, sellIn, quality) {
+    super(name, sellIn, quality);
+    this.QUALITY_INCREMENT = -1;
+  }
+
   _updateQuality() {
-    this.quality += this.QUALITY_CHANGE;
+    this._incrementQuality();
     this._tenDaysOrLessCheck();
     this._fiveDaysOrLessCheck();
     this._checkQualityLimits();
@@ -10,11 +15,11 @@ class TicketItem extends StandardItem {
   }
 
   _tenDaysOrLessCheck() {
-    if (this.sellIn <= 10) { this.quality += this.QUALITY_CHANGE; }
+    if (this.sellIn <= 10) { this._incrementQuality(); }
   }
 
   _fiveDaysOrLessCheck() {
-    if (this.sellIn <= 5) { this.quality += this.QUALITY_CHANGE; }
+    if (this.sellIn <= 5) { this._incrementQuality(); }
   }
 
   _pastSellInCheck() {
