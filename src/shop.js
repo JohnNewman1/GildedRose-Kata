@@ -6,7 +6,6 @@ const { TicketItem } = require('./ticketItem');
 
 class Shop {
   constructor(items = []) {
-    this.items = items;
     this.classMap = {
       Default: StandardItem,
       'Aged Brie': MaturingItem,
@@ -14,7 +13,7 @@ class Shop {
       'Conjured Item': ConjuredItem,
       'Backstage passes to a TAFKAL80ETC concert': TicketItem,
     };
-    this._transformItems();
+    this.items = this._transformItems(items);
   }
   updateQuality() {
     this.items.forEach((item) => {
@@ -23,14 +22,13 @@ class Shop {
     return this.items;
   }
 
-  _transformItems() {
+  _transformItems(items) {
     const newItems = [];
-    for (let i = 0; i < this.items.length; i++) {
-      const item = this.items[i];
+    items.forEach((item) => {
       const ConstructorClass = this.classMap[item.name] || this.classMap.Default;
       newItems.push(new ConstructorClass(item.name, item.sellIn, item.quality));
-    }
-    this.items = newItems;
+    });
+    return newItems;
   }
 }
 
