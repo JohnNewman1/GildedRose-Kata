@@ -91,7 +91,7 @@ There is a risk that someone could change a number by accident and this would me
 #### Areas for development
 * Input checking for object initialisation
 * Make tests more robust with parameterisation
-* Have the logic that transforms standard Items into their updatable equivalents search for keywords such as 'Conjured' and 'Sulfuras'
+* Have the logic that returns the correct strategies search for keywords such as 'Conjured' and 'Sulfuras'
 
 #### License
 This app is free to use but please credit in your own application if you reuse code directly
