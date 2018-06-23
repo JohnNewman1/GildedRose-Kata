@@ -102,4 +102,40 @@ describe('QualityStrategy', () => {
       expect(pastSellInItem.quality).toEqual(10);
     });
   });
+
+  describe('conjuredStrategy', () => {
+    it('has a conjured strategy that decrements the quality by twice the default when sellIn > 0', () => {
+      qualityStrategy.conjuredStrategy(fakeItem);
+
+      expect(fakeItem.quality).toEqual(8);
+    });
+
+    it('has a conjurd strategy that decrements the quality at twice the rate when sellIn <= 0', () => {
+      qualityStrategy.conjuredStrategy(pastSellInItem);
+
+      expect(pastSellInItem.quality).toEqual(6);
+    });
+
+    it('has a conjured strategy that stops the quality going below 0', () => {
+      const pastSellInItem2 = {
+        name: 'any',
+        sellIn: 0,
+        quality: 1,
+      };
+      qualityStrategy.conjuredStrategy(pastSellInItem2);
+
+      expect(pastSellInItem2.quality).toEqual(0);
+    });
+
+    it('has a conjured strategy that stops the quality going below 0 from different start', () => {
+      const fakeItem2 = {
+        name: 'any',
+        sellIn: 1,
+        quality: 0,
+      };
+      qualityStrategy.conjuredStrategy(fakeItem2);
+
+      expect(fakeItem2.quality).toEqual(0);
+    });
+  });
 });

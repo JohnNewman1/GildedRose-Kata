@@ -28,6 +28,13 @@ class QualityStrategy {
 
   sulfurasStrategy() { }
 
+  conjuredStrategy(item) {
+    this.qualityIncrement = 2;
+    this._incrementQuality(item);
+    this._pastSellInCheck(item);
+    this._checkQualityLimits(item);
+  }
+
   _pastSellInCheck(item) {
     if (item.sellIn <= 0) { this._incrementQuality(item); }
   }
