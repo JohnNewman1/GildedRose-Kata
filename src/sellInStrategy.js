@@ -6,6 +6,10 @@ class SellInStrategy {
     };
   }
 
+  getSellInStrategy(item) {
+    return this.strategies[item.name] || this.strategies.Default;
+  }
+
   defaultStrategy(item) {
     item.sellIn -= 1;
   }
