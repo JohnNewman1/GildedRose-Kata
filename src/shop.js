@@ -1,34 +1,20 @@
-const { MaturingItem } = require('./maturingItem');
-const { StandardItem } = require('./standardItem');
-const { SulfurasItem } = require('./sulfurasItem');
-const { ConjuredItem } = require('./conjuredItem');
-const { TicketItem } = require('./ticketItem');
+const { QualityStrategy } = require('./qualityStrategy');
+const { SellInStrategy } = require('./sellInStrategy');
 
 class Shop {
   constructor(items = []) {
-    this.classMap = {
-      Default: StandardItem,
-      'Aged Brie': MaturingItem,
-      'Sulfuras, Hand of Ragnaros': SulfurasItem,
-      'Conjured Item': ConjuredItem,
-      'Backstage passes to a TAFKAL80ETC concert': TicketItem,
-    };
-    this.items = this._transformItems(items);
+    this.items = items;
+    this.sellInStrategy = new SellInStrategy();
+    this.qualityStrategy = new QualityStrategy();
   }
   updateQuality() {
     this.items.forEach((item) => {
-      item.updateProperties();
+      const qualityStrategy = this.qualityStrategy.getStrategy(item);
+      const sellInStrategy = this.sellInStrategy.getStrategy(item);
+      qualityStrategy(item);
+      sellInStrategy(item);
     });
     return this.items;
-  }
-
-  _transformItems(items) {
-    const newItems = [];
-    items.forEach((item) => {
-      const ConstructorClass = this.classMap[item.name] || this.classMap.Default;
-      newItems.push(new ConstructorClass(item.name, item.sellIn, item.quality));
-    });
-    return newItems;
   }
 }
 

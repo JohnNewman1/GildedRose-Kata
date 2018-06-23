@@ -231,30 +231,30 @@ describe('QualityStrategy', () => {
 
   it('returns the default strategy for normal items', () => {
     const strategy = qualityStrategy.getStrategy(fakeItem);
-    expect(strategy).toEqual(qualityStrategy.defaultStrategy);
+    expect(strategy.name).toEqual(qualityStrategy.defaultStrategy.bind(qualityStrategy).name);
   });
 
   it('returns the sulfuras strategy for Sulfuras item', () => {
     const fakeSulfuras = { name: 'Sulfuras, Hand of Ragnaros' };
     const strategy = qualityStrategy.getStrategy(fakeSulfuras);
-    expect(strategy).toEqual(qualityStrategy.sulfurasStrategy);
+    expect(strategy.name).toEqual(qualityStrategy.sulfurasStrategy.bind(qualityStrategy).name);
   });
 
   it('returns the agedBrie strategy for Aged Brie item', () => {
     const fakeBrie = { name: 'Aged Brie' };
     const strategy = qualityStrategy.getStrategy(fakeBrie);
-    expect(strategy).toEqual(qualityStrategy.agedBrieStrategy);
+    expect(strategy.name).toEqual(qualityStrategy.agedBrieStrategy.bind(qualityStrategy).name);
   });
 
   it('returns the conjured strategy for conjured item', () => {
     const fakeConjured = { name: 'Conjured Item' };
     const strategy = qualityStrategy.getStrategy(fakeConjured);
-    expect(strategy).toEqual(qualityStrategy.conjuredStrategy);
+    expect(strategy.name).toEqual(qualityStrategy.conjuredStrategy.bind(qualityStrategy).name);
   });
 
   it('returns the ticket strategy for ticket item', () => {
     const fakeTicket = { name: 'Backstage passes to a TAFKAL80ETC concert' };
     const strategy = qualityStrategy.getStrategy(fakeTicket);
-    expect(strategy).toEqual(qualityStrategy.ticketStrategy);
+    expect(strategy.name).toEqual(qualityStrategy.ticketStrategy.bind(qualityStrategy).name);
   });
 });

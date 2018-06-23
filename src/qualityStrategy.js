@@ -11,7 +11,8 @@ class QualityStrategy {
   }
 
   getStrategy(item) {
-    return this.strategies[item.name] || this.strategies.Default;
+    const strategy = this.strategies[item.name] || this.strategies.Default;
+    return strategy.bind(this);
   }
 
   defaultStrategy(item) {
