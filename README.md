@@ -5,9 +5,7 @@ GildedRose Refactoring Kata
 
 ## Summary
 
-A solution to the GildedRose Kata where you have been provided with legacy code for an inventory system that
-updates the inventory at the end of each day based on a set of given rules. The challenge is to keep certain elements
-of the code the same whilst improving the structure so that you can then easily add a new feature.
+A solution to the GildedRose Kata where you have been provided with legacy code for an inventory system that updates the inventory at the end of each day based on a set of given rules. The challenge is to keep certain elements of the code the same whilst improving the structure so that you can then easily add a new feature.
 
 This app was created over a two day period as part of my development on the Makers Academy course.
 
@@ -29,10 +27,7 @@ This is a well known kata developed by Terry Hughes. The rules of the challenge 
 
 #### Installation
 
-This application has been made in Javascript using Node to run it and npm as the package manager to simplify the build process and
-include all necessary dependencies. If you do not have Node installed it is recommended you
-do so ([Node](https://nodejs.org/en/download/)). To get started please follow the
-subsequent steps.
+This application has been made in Javascript using Node to run it and npm as the package manager to simplify the build process and include all necessary dependencies. If you do not have Node installed it is recommended you do so ([Node](https://nodejs.org/en/download/)). To get started please follow the subsequent steps.
 
 ```
 $ git clone https://github.com/georgesykes86/GildedRose-Kata
@@ -42,8 +37,7 @@ $ npm install
 
 #### How to use
 
-The app has a predefined demo which can be found in the app.js file in the root. You can run this from the command line to see
-an example output.
+The app has a predefined demo which can be found in the app.js file in the root. You can run this from the command line to see an example output.
 
 ```
 $ node app.js
@@ -105,34 +99,25 @@ SulfurasItem {
 ## Approach
 
 #### Methodology
-The ambition for this app was to take the existing codebase and refactor it into a more understandable, maintainable and
-extendable structure. The process I followed was to begin by creating a number of feature tests which benchmarked the existing functionality.
+The ambition for this app was to take the existing codebase and refactor it into a more understandable, maintainable and extendable structure. The process I followed was to begin by creating a number of feature tests which benchmarked the existing functionality.
 These feature tests were designed to capture the normal behaviour as well as edge cases.
-Once the feature tests were in place I began by refactoring the existing code within the existing objects. This involved extracting methods to DRY
-out the code and restructuring the algorithm to reduce the number of checks that needed to be performed. This revealed a large amount of functionality
-where the main GildedRose class was having to manipulate the properties of different items. In order to prevent this I extracted a number of new classes
-that extended the base Item class but added their own functionality for updating their properties with a common updateProperties interface method.
+Once the feature tests were in place I began by refactoring the existing code within the existing objects. This involved extracting methods to DRY out the code and restructuring the algorithm to reduce the number of checks that needed to be performed. This revealed a large amount of functionality where the main GildedRose class was having to manipulate the properties of different items. In order to prevent this I extracted a number of new classes that extended the base Item class but added their own functionality for updating their properties with a common updateProperties interface method.
 
 The image below shows the UML diagram showing the relationships between the new objects.
 
 ![Imgur](https://i.imgur.com/dExdMmJ.png)
 
-In addition to the strategy above I have started to explore a different implementation using the Strategy Design Pattern. This can be found by switching to
-the Strategy_Pattern branch of this repository.
+In addition to the strategy above I have started to explore a different implementation using the Strategy Design Pattern. This can be found by switching to the Strategy_Pattern branch of this repository.
 
 #### Technologies
-The app was made using Javascript with the EC6 class syntax. Node was used to run the app and npm for installing packages. Testing was performed using
-Jasmine with ESLint as a linter using the AirBnB config and Istanbul for code coverage.
+The app was made using Javascript with the EC6 class syntax. Node was used to run the app and npm for installing packages. Testing was performed using Jasmine with ESLint as a linter using the AirBnB config and Istanbul for code coverage.
 
 #### Testing
-The development process followed a TDD approach with the development of feature tests to assess the
-end to end functionality and unit tests to test each of the components in isolation.
+The development process followed a TDD approach with the development of feature tests to assess the end to end functionality and unit tests to test each of the components in isolation.
 
 The tests can be run from the command line using ```npm run test```
 
-One concern I have about my tests are that they rely heavily on the starting values entered during set up.
-There is a risk that someone could change a number by accident and this would mean certain edge cases might no
-be covered any more. I would like to develop parameterised tests that are immune from this if given more time.
+One concern I have about my tests are that they rely heavily on the starting values entered during set up. There is a risk that someone could change a number by accident and this would mean certain edge cases might not be covered any more. I would like to develop parameterised tests that are immune from this if given more time.
 
 ## Further Information
 
