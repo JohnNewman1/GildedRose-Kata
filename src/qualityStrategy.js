@@ -13,6 +13,7 @@ class QualityStrategy {
   defaultStrategy(item) {
     this._incrementQuality(item);
     this._pastSellInCheck(item);
+    this._checkQualityLimits(item);
   }
 
   agedBrieStrategy() { }
@@ -26,6 +27,10 @@ class QualityStrategy {
   }
 
   _incrementQuality(item) { item.quality -= this.QUALITY_INCREMENT; }
+
+  _checkQualityLimits(item) {
+    if (item.quality < 0) { item.quality = 0; }
+  }
 }
 
 module.exports.QualityStrategy = QualityStrategy;

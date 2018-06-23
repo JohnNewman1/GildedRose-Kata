@@ -27,4 +27,14 @@ describe('QualityStrategy', () => {
     qualityStrategy.defaultStrategy(pastSellInItem);
     expect(pastSellInItem.quality).toEqual(8);
   });
+
+  it('has a default strategy that stops the quality going below 0', () => {
+    const pastSellInItem = {
+      name: 'any',
+      sellIn: 0,
+      quality: 1,
+    };
+    qualityStrategy.defaultStrategy(pastSellInItem);
+    expect(pastSellInItem.quality).toEqual(0);
+  });
 });
