@@ -24,7 +24,14 @@ class QualityStrategy {
     this._checkQualityLimits(item);
   }
 
-  ticketStrategy() { }
+  ticketStrategy(item) {
+    this.qualityIncrement = -1;
+    this._incrementQuality(item);
+    this._tenDaysOrLessCheck(item);
+    this._fiveDaysOrLessCheck(item);
+    this._eventOverCheck(item);
+    this._checkQualityLimits(item);
+  }
 
   sulfurasStrategy() { }
 
@@ -44,6 +51,18 @@ class QualityStrategy {
   _checkQualityLimits(item) {
     if (item.quality < 0) { item.quality = 0; }
     if (item.quality > this.MAX_QUALITY) { item.quality = this.MAX_QUALITY; }
+  }
+
+  _tenDaysOrLessCheck(item) {
+    if (item.sellIn <= 10) { this._incrementQuality(item); }
+  }
+
+  _fiveDaysOrLessCheck(item) {
+    if (item.sellIn <= 5) { this._incrementQuality(item); }
+  }
+
+  _eventOverCheck(item) {
+    if (item.sellIn <= 0) { item.quality = 0; }
   }
 }
 

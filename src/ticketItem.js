@@ -10,8 +10,8 @@ class TicketItem extends StandardItem {
     this._incrementQuality();
     this._tenDaysOrLessCheck();
     this._fiveDaysOrLessCheck();
-    this._checkQualityLimits();
     this._pastSellInCheck();
+    this._checkQualityLimits();
   }
 
   _tenDaysOrLessCheck() {
