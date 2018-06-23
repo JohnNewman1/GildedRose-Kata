@@ -7,16 +7,22 @@ class QualityStrategy {
       'Backstage passes to a TAFKAL80ETC concert': this.ticketStrategy,
       'Sulfuras, Hand of Ragnaros': this.sulfurasStrategy,
     };
-    this.QUALITY_INCREMENT = 1;
+    this.MAX_QUALITY = 50;
   }
 
   defaultStrategy(item) {
+    this.qualityIncrement = 1;
     this._incrementQuality(item);
     this._pastSellInCheck(item);
     this._checkQualityLimits(item);
   }
 
-  agedBrieStrategy() { }
+  agedBrieStrategy(item) {
+    this.qualityIncrement = -1;
+    this._incrementQuality(item);
+    this._pastSellInCheck(item);
+    this._checkQualityLimits(item);
+  }
 
   ticketStrategy() { }
 
@@ -26,10 +32,11 @@ class QualityStrategy {
     if (item.sellIn <= 0) { this._incrementQuality(item); }
   }
 
-  _incrementQuality(item) { item.quality -= this.QUALITY_INCREMENT; }
+  _incrementQuality(item) { item.quality -= this.qualityIncrement; }
 
   _checkQualityLimits(item) {
     if (item.quality < 0) { item.quality = 0; }
+    if (item.quality > this.MAX_QUALITY) { item.quality = this.MAX_QUALITY; }
   }
 }
 
