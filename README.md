@@ -105,7 +105,7 @@ Once the feature tests were in place I began by refactoring the existing code wi
 
 The image below shows the UML diagram showing the relationships between the new objects.
 
-*(In addition to the strategy above I have started to explore a different implementation using the Strategy Design Pattern. This can be found by switching to the Strategy_Pattern branch of this repository)*
+*(In addition to the strategy below I have started to explore a different implementation using the Strategy Design Pattern. This can be found by switching to the Strategy_Pattern branch of this repository)*
 
 ![Imgur](https://i.imgur.com/dExdMmJ.png)
 
