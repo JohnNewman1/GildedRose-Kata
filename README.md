@@ -5,7 +5,7 @@ GildedRose Refactoring Kata
 
 ## Summary
 
-A solution to the GildedRose Kata where you have been provided with legacy code for an inventory system that updates the inventory at the end of each day based on a set of given rules. The challenge is to keep certain elements of the code the same whilst improving the structure so that you can then easily add a new feature.
+A solution to the GildedRose Kata where you have been provided with legacy code for an inventory system that updates the inventory at the end of each day based on a set of given rules. The challenge is to keep certain elements of the code the same whilst improving the structure so that you can then easily add a new feature. I have tried to explore two different design patterns during this exercise. The master branch uses an **inheritance** pattern while the Strategy_Pattern branch uses the **Strategy** design pattern.
 
 This app was created over a two day period as part of my development on the Makers Academy course.
 
