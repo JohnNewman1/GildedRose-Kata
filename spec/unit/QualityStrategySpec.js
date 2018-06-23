@@ -228,4 +228,33 @@ describe('QualityStrategy', () => {
       expect(fakeTicket.quality).toEqual(50);
     });
   });
+
+  it('returns the default strategy for normal items', () => {
+    const strategy = qualityStrategy.getStrategy(fakeItem);
+    expect(strategy).toEqual(qualityStrategy.defaultStrategy);
+  });
+
+  it('returns the sulfuras strategy for Sulfuras item', () => {
+    const fakeSulfuras = { name: 'Sulfuras, Hand of Ragnaros' };
+    const strategy = qualityStrategy.getStrategy(fakeSulfuras);
+    expect(strategy).toEqual(qualityStrategy.sulfurasStrategy);
+  });
+
+  it('returns the agedBrie strategy for Aged Brie item', () => {
+    const fakeBrie = { name: 'Aged Brie' };
+    const strategy = qualityStrategy.getStrategy(fakeBrie);
+    expect(strategy).toEqual(qualityStrategy.agedBrieStrategy);
+  });
+
+  it('returns the conjured strategy for conjured item', () => {
+    const fakeConjured = { name: 'Conjured Item' };
+    const strategy = qualityStrategy.getStrategy(fakeConjured);
+    expect(strategy).toEqual(qualityStrategy.conjuredStrategy);
+  });
+
+  it('returns the ticket strategy for ticket item', () => {
+    const fakeTicket = { name: 'Backstage passes to a TAFKAL80ETC concert' };
+    const strategy = qualityStrategy.getStrategy(fakeTicket);
+    expect(strategy).toEqual(qualityStrategy.ticketStrategy);
+  });
 });

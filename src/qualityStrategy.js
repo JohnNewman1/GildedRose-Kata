@@ -10,6 +10,10 @@ class QualityStrategy {
     this.MAX_QUALITY = 50;
   }
 
+  getStrategy(item) {
+    return this.strategies[item.name] || this.strategies.Default;
+  }
+
   defaultStrategy(item) {
     this.qualityIncrement = 1;
     this._regularQualityUpdate(item);

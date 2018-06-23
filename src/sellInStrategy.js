@@ -6,7 +6,7 @@ class SellInStrategy {
     };
   }
 
-  getSellInStrategy(item) {
+  getStrategy(item) {
     return this.strategies[item.name] || this.strategies.Default;
   }
 

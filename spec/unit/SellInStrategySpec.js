@@ -27,12 +27,12 @@ describe('SellInStrategy', () => {
   });
 
   it('returns the default strategy for non Sulfuras ', () => {
-    const strategy = sellInStrategy.getSellInStrategy(fakeItem);
+    const strategy = sellInStrategy.getStrategy(fakeItem);
     expect(strategy).toEqual(sellInStrategy.defaultStrategy);
   });
 
   it('returns the sulfuras strategy for Sulfuras item', () => {
-    const strategy = sellInStrategy.getSellInStrategy(fakeSulfuras);
+    const strategy = sellInStrategy.getStrategy(fakeSulfuras);
     expect(strategy).toEqual(sellInStrategy.sulfurasStrategy);
   });
 });
