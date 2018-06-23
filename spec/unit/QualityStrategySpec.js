@@ -90,4 +90,16 @@ describe('QualityStrategy', () => {
       expect(pastSellInItem2.quality).toEqual(50);
     });
   });
+
+  describe('sulfurasStrategy', () => {
+    it('has a sulfuras strategy that does nothing when sellIn > 0', () => {
+      qualityStrategy.sulfurasStrategy(fakeItem);
+      expect(fakeItem.quality).toEqual(10);
+    });
+
+    it('has a sulfuras strategy that does nothing when sellIn > 0', () => {
+      qualityStrategy.sulfurasStrategy(pastSellInItem);
+      expect(pastSellInItem.quality).toEqual(10);
+    });
+  });
 });
