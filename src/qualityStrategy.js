@@ -12,16 +12,12 @@ class QualityStrategy {
 
   defaultStrategy(item) {
     this.qualityIncrement = 1;
-    this._incrementQuality(item);
-    this._pastSellInCheck(item);
-    this._checkQualityLimits(item);
+    this._regularQualityUpdate(item);
   }
 
   agedBrieStrategy(item) {
     this.qualityIncrement = -1;
-    this._incrementQuality(item);
-    this._pastSellInCheck(item);
-    this._checkQualityLimits(item);
+    this._regularQualityUpdate(item);
   }
 
   ticketStrategy(item) {
@@ -37,9 +33,7 @@ class QualityStrategy {
 
   conjuredStrategy(item) {
     this.qualityIncrement = 2;
-    this._incrementQuality(item);
-    this._pastSellInCheck(item);
-    this._checkQualityLimits(item);
+    this._regularQualityUpdate(item);
   }
 
   _pastSellInCheck(item) {
@@ -63,6 +57,12 @@ class QualityStrategy {
 
   _eventOverCheck(item) {
     if (item.sellIn <= 0) { item.quality = 0; }
+  }
+
+  _regularQualityUpdate(item) {
+    this._incrementQuality(item);
+    this._pastSellInCheck(item);
+    this._checkQualityLimits(item);
   }
 }
 
